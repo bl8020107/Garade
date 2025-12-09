@@ -1,0 +1,5 @@
+export const environment = {
+  production: false,
+  apiUrl: process.env['API_URL'] || 'http://localhost:5231/api'
+};
+

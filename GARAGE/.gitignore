@@ -1,0 +1,31 @@
+# .NET
+backend/**/bin/
+backend/**/obj/
+*.db
+*.db-shm
+*.db-wal
+
+# Angular
+frontend/**/node_modules/
+frontend/**/dist/
+frontend/**/.angular/
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+frontend/**/.env
+backend/**/.env
+
+
+
+

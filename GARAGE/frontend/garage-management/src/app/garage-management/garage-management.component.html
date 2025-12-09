@@ -1,0 +1,81 @@
+<div class="container">
+  <h1>ניהול מוסכים</h1>
+
+  <div class="controls-section">
+    <mat-form-field appearance="outline" class="multi-select-field">
+      <mat-label>בחר מוסכים</mat-label>
+      <mat-select [formControl]="selectedGarages" multiple>
+        <mat-option *ngFor="let garage of allGarages" [value]="garage">
+          {{ getGarageDisplayName(garage) }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button 
+      mat-raised-button 
+      color="primary" 
+      (click)="addGarages()" 
+      [disabled]="isLoading || (selectedGarages.value?.length || 0) === 0"
+      class="add-button">
+      הוספה
+    </button>
+  </div>
+
+  <div class="spinner-container" *ngIf="isLoading">
+    <mat-spinner diameter="50"></mat-spinner>
+    <p>טוען נתונים...</p>
+  </div>
+
+  <div class="table-container" *ngIf="!isLoadingTable">
+    <table mat-table [dataSource]="displayedGarages" class="garage-table">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>מספר</th>
+        <td mat-cell *matCellDef="let garage">{{ garage.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>שם</th>
+        <td mat-cell *matCellDef="let garage">{{ garage.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef>כתובת</th>
+        <td mat-cell *matCellDef="let garage">{{ garage.address }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef>עיר</th>
+        <td mat-cell *matCellDef="let garage">{{ garage.city }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef>טלפון</th>
+        <td mat-cell *matCellDef="let garage">{{ garage.phone }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>אימייל</th>
+        <td mat-cell *matCellDef="let garage">{{ garage.email }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <tr class="mat-row no-data-row" *matNoDataRow>
+        <td class="mat-cell no-data-cell" [attr.colspan]="displayedColumns.length">
+          <div class="no-data-message">
+            <span class="no-data-icon">📋</span>
+            <p>אין מוסכים בטבלה</p>
+            <small>בחר מוסכים מהרשימה למעלה והוסף אותם</small>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="spinner-container" *ngIf="isLoadingTable">
+    <mat-spinner diameter="50"></mat-spinner>
+    <p>טוען טבלה...</p>
+  </div>
+</div>
+

@@ -1,0 +1,106 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* Material Design form field improvements */
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+.mat-mdc-form-field .mat-mdc-text-field-wrapper {
+  background-color: #fafafa;
+}
+
+.mat-mdc-form-field.mat-focused .mat-mdc-text-field-wrapper {
+  background-color: white;
+}
+
+/* RTL fixes for Material Design */
+[dir="rtl"] .mat-mdc-select-trigger {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .mat-mdc-select-value {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .mat-mdc-select-arrow-wrapper {
+  left: 0 !important;
+  right: auto !important;
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .mat-mdc-form-field-label {
+  right: 0;
+  left: auto;
+  text-align: right;
+}
+
+[dir="rtl"] .mat-mdc-select-placeholder {
+  text-align: right;
+  direction: rtl;
+}
+
+/* Fix select panel RTL */
+.mat-mdc-select-panel {
+  direction: rtl;
+}
+
+.mat-mdc-option {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Button improvements */
+.mat-mdc-raised-button {
+  text-transform: none !important;
+  letter-spacing: 0.5px;
+}
+
+/* Table improvements */
+.mat-mdc-table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Spinner improvements */
+.mat-mdc-progress-spinner {
+  margin: 0 auto;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
